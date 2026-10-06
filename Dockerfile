@@ -1,4 +1,5 @@
-FROM ubuntu:latest
-LABEL authors="User"
+FROM eclipse-temurin:25
 
-ENTRYPOINT ["top", "-b"]
+COPY ./target/classes/com /tmp/com
+WORKDIR /tmp
+ENTRYPOINT ["java", "com.napier.sem.Main"]
