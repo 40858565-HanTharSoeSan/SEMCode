@@ -4,3 +4,7 @@ Hi all. Lab2 Test.
 
 ![workflow](https://github.com/40858565-HanTharSoeSan/SEMCode/actions/workflows/main.yml/badge.svg)
 
+[![LICENSE](https://img.shields.io/github/license/40858565-HanTharSoeSan/SEMCode.svg?style=flat-square)](https://github.com/40858565-HanTharSoeSan/SEMCode/blob/master/LICENSE)
+
+[![Releases](https://img.shields.io/github/release/40858565-HanTharSoeSan/SEMCode/all.svg?style=flat-square)](https://github.com/40858565-HanTharSoeSan/SEMCode/releases)
+
