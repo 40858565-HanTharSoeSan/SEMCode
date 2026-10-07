@@ -11,3 +11,5 @@ Hi all. Lab2 Test.
 # DevOps
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/40858565-HanTharSoeSan/SEMCode/main.yml?branch=develop&style=flat-square)
 
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/40858565-HanTharSoeSan/SEMCode/main.yml?branch=develop&style=flat-square)](https://github.com/40858565-HanTharSoeSan/SEMCode/actions/workflows/main.yml)
+
