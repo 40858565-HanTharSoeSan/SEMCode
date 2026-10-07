@@ -8,3 +8,6 @@ Hi all. Lab2 Test.
 
 [![Releases](https://img.shields.io/github/release/40858565-HanTharSoeSan/SEMCode/all.svg?style=flat-square)](https://github.com/40858565-HanTharSoeSan/SEMCode/releases)
 
+# DevOps
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/40858565-HanTharSoeSan/SEMCode/main.yml?branch=develop&style=flat-square)
+
