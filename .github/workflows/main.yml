@@ -26,6 +26,11 @@ jobs:
       - name: Build with Maven
         run: mvn package
 
+      - name: Check JAR file
+        run: |
+          ls -lah target/
+          test -f target/semApp.jar
+
       - name: Build
         run: docker build -t se_methods .
 
