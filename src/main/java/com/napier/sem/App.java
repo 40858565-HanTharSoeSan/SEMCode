@@ -1,38 +1,65 @@
+
 package com.napier.sem;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class App {
 
-    static void main() {
+    public static void main(String[] args) {
 
-        // Connect to MongoDB on local system - we're using port 27000
-        MongoClient mongoClient = new MongoClient("mongo-dbserver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
 
-        // Get a database - will create when we use it
-        MongoDatabase database = mongoClient.getDatabase("mydb");
+        Connection con = null;
+        int retries = 100;
 
-        // Get a collection from the database
-        MongoCollection<Document> collection =
-                database.getCollection("test");
+        for (int i = 0; i < retries; i++) {
+            System.out.println("Connecting to database...");
 
-        // Create a document to store
-        Document doc = new Document("name", "Kevin Sim")
-                .append("class", "DevOps")
-                .append("year", "2024")
-                .append("result",
-                        new Document("CW", 95)
-                                .append("EX", 85));
+            try {
+                Thread.sleep(3000);
 
-        // Add document to collection
-        collection.insertOne(doc);
+                con = DriverManager.getConnection(
+                        "jdbc:mysql://db:3306/employees" +
+                                "?allowPublicKeyRetrieval=true" +
+                                "&useSSL=false",
+                        "root",
+                        "example"
+                );
 
-        // Check document in collection
-        Document myDoc = collection.find().first();
+                System.out.println("Successfully connected");
+                break;
 
-        System.out.println(myDoc.toJson());
+            } catch (SQLException e) {
+                System.out.println(
+                        "Failed to connect attempt " + (i + 1)
+                );
+                System.out.println(e.getMessage());
+
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted");
+                break;
+            }
+        }
+
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(
+                        "Error closing connection"
+                );
+            }
+        } else {
+            System.out.println("Could not connect to database");
+            System.exit(1);
+        }
     }
 }
