@@ -1,6 +1,6 @@
 FROM eclipse-temurin:25
 
-COPY ./target/semApp-0.1.0.2.jar /tmp
+COPY ./target/semApp-0.1.0.3.jar /tmp
 
 WORKDIR /tmp
 
